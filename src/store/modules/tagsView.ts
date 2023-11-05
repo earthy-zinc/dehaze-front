@@ -1,5 +1,5 @@
-import { defineStore } from "pinia";
-import { RouteLocationNormalized } from "vue-router";
+import {defineStore} from "pinia";
+import {RouteLocationNormalized} from "vue-router";
 
 export interface TagView extends Partial<RouteLocationNormalized> {
   title?: string;
@@ -16,9 +16,7 @@ export const useTagsViewStore = defineStore("tagsView", () => {
     if (visitedViews.value.some((v) => v.path === view.path)) return;
     if (view.meta && view.meta.affix) {
       visitedViews.value.unshift(
-        Object.assign({}, view, {
-          title: view.meta?.title || "no-name",
-        })
+		  {...view, title: view.meta?.title as string || "no-name",}
       );
     } else {
       visitedViews.value.push(
@@ -97,8 +95,8 @@ export const useTagsViewStore = defineStore("tagsView", () => {
 
   function delView(view: TagView) {
     return new Promise((resolve) => {
-      delVisitedView(view);
-      delCachedView(view);
+      delVisitedView(view).then();
+      delCachedView(view).then();
       resolve({
         visitedViews: [...visitedViews.value],
         cachedViews: [...cachedViews.value],
@@ -170,8 +168,7 @@ export const useTagsViewStore = defineStore("tagsView", () => {
 
   function delAllViews() {
     return new Promise((resolve) => {
-      const affixTags = visitedViews.value.filter((tag) => tag.meta?.affix);
-      visitedViews.value = affixTags;
+		visitedViews.value = visitedViews.value.filter((tag) => tag.meta?.affix);
       cachedViews.value = [];
       resolve({
         visitedViews: [...visitedViews.value],
@@ -182,8 +179,7 @@ export const useTagsViewStore = defineStore("tagsView", () => {
 
   function delAllVisitedViews() {
     return new Promise((resolve) => {
-      const affixTags = visitedViews.value.filter((tag) => tag.meta?.affix);
-      visitedViews.value = affixTags;
+        visitedViews.value = visitedViews.value.filter((tag) => tag.meta?.affix);
       resolve([...visitedViews.value]);
     });
   }

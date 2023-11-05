@@ -22,7 +22,7 @@ export const useUserStore = defineStore("user", () => {
   /**
    * 登录调用
    *
-   * @param {LoginData}
+   * @param loginData
    * @returns
    */
   function login(loginData: LoginData) {

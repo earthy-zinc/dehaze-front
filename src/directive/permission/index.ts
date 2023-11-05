@@ -46,7 +46,7 @@ export const hasRole: Directive = {
       });
 
       if (!hasRole) {
-        el.parentNode && el.parentNode.removeChild(el);
+        el.parentNode && el.parentNode?.removeChild(el);
       }
     } else {
       throw new Error("need roles! Like v-has-role=\"['admin','test']\"");

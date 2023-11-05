@@ -3,7 +3,7 @@ import request from "@/utils/request";
 /**
  * 发送消息给所有人
  *
- * @param file
+ * @param message
  */
 export function sendToAll(message: string) {
   return request({
@@ -16,7 +16,8 @@ export function sendToAll(message: string) {
 /**
  * 发送消息给指定用户
  *
- * @param
+ * @param userId
+ * @param message
  */
 export function sendToUser(userId: number, message: string) {
   return request({

@@ -120,7 +120,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       }),
 
       viteMockServe({
-        ignore: /^\_/,
+        ignore: /^_/,
         mockPath: "mock",
         enable: mode === "development",
         // https://github.com/anncwb/vite-plugin-mock/issues/9

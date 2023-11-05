@@ -5,7 +5,7 @@
       src="https://www.apifox.cn/apidoc/shared-195e783f-4d85-4235-a038-eec696de4ea5"
       width="100%"
       height="100%"
-      frameborder="0"
+      title="接口文档"
     ></iframe>
   </div>
 </template>

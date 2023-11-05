@@ -24,7 +24,7 @@ const logo = ref(new URL(`../../../assets/logo.png`, import.meta.url).href);
         class="h-full w-full flex items-center justify-center"
         to="/"
       >
-        <img v-if="settingsStore.sidebarLogo" :src="logo" class="w-5 h-5" />
+        <img v-if="settingsStore.sidebarLogo" :src="logo" class="w-5 h-5" alt="" />
         <span v-else class="ml-3 text-white text-sm font-bold"
           >vue3-element-admin</span
         >

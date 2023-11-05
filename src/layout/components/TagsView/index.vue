@@ -244,7 +244,7 @@ onMounted(() => {
         @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
         @contextmenu.prevent="openTagMenu(tag, $event)"
       >
-        {{ translateRouteTitleI18n(tag.meta?.title) }}
+        {{ translateRouteTitleI18n(tag.meta?.["title"]) }}
         <span
           v-if="!isAffix(tag)"
           class="tags-item-close"

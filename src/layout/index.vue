@@ -62,8 +62,8 @@ function handleOutsideClick() {
     <div
       v-if="classObj.mobile && classObj.openSidebar"
       class="drawer-bg"
-      @click="handleOutsideClick"
-    ></div>
+      @click="handleOutsideClick">
+    </div>
 
     <Sidebar class="sidebar-container" />
 

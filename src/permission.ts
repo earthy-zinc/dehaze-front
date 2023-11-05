@@ -40,20 +40,17 @@ router.beforeEach(async (to, from, next) => {
           next({ ...to, replace: true });
         } catch (error) {
           // 移除 token 并跳转登录页
-          await userStore.resetToken();
+          userStore.resetToken();
           next(`/login?redirect=${to.path}`);
           NProgress.done();
         }
       }
     }
+  } else if (whiteList.indexOf(to.path) !== -1) {
+    next();
   } else {
-    // 未登录可以访问白名单页面
-    if (whiteList.indexOf(to.path) !== -1) {
-      next();
-    } else {
-      next(`/login?redirect=${to.path}`);
-      NProgress.done();
-    }
+    next(`/login?redirect=${to.path}`);
+    NProgress.done();
   }
 });
 
