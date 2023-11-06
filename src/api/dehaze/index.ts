@@ -1,10 +1,17 @@
-import {DehazeIndex} from "@/api/dehaze/types";
+import {DehazeIndex, ImageInfo, ModelInfo} from "@/api/dehaze/types";
 import requestPy from "@/utils/request-py";
 import {AxiosPromise} from "axios";
 
-export function uploadImageApi(file: File) {
+export function getModelApi(): AxiosPromise<ModelInfo[]> {
 	return requestPy({
-		url: "/upload",
+		url: "/model/",
+		method: "get",
+	})
+}
+
+export function uploadImageApi(file: File): AxiosPromise<ImageInfo> {
+	return requestPy({
+		url: "/upload/",
 		method: "post",
 		data: file,
 		headers: {
@@ -13,19 +20,25 @@ export function uploadImageApi(file: File) {
 	})
 }
 
-export function dehazeApi(file: File): AxiosPromise<File>{
+export function downloadApi(image_name: string): AxiosPromise<File> {
 	return requestPy({
-		url: "/dehaze",
-		method: "post",
-		data: file,
-		headers: {
-			"Content-Type": "Image/png",
-		}
+		url: `/download/${image_name}/`,
+		method: "get"
 	})
 }
 
-export function calculateIndexApi(): AxiosPromise<DehazeIndex> {
+export function dehazeApi(haze_image: string, model_name: string): AxiosPromise<ImageInfo>{
 	return requestPy({
+		url: "/dehazeImage/",
+		method: "post",
+		data: {haze_image, model_name}
+	})
+}
 
+export function calculateIndexApi(haze_image: string, clear_image: string): AxiosPromise<DehazeIndex> {
+	return requestPy({
+		url: "/calculateIndex/",
+		method: "post",
+		data: {haze_image, clear_image}
 	})
 }

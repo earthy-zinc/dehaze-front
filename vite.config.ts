@@ -57,6 +57,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
               env.VITE_APP_TARGET_BASE_API
             ), // 替换 /dev-api 为 target 接口地址
         },
+	    [env.VITE_APP_PYTHON_API]: {
+			target: env.VITE_APP_PYTHON_URL,
+			changeOrigin: true,
+			rewrite: (path) =>
+				path.replace(
+					new RegExp("^" + env.VITE_APP_PYTHON_API),
+					env.VITE_APP_TARGET_BASE_API
+				),
+		}
       },
     },
     plugins: [

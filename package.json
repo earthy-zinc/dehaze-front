@@ -4,8 +4,8 @@
   "version": "2.5.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "vite serve --mode development",
-    "build:prod": "vite build --mode production && vue-tsc --noEmit",
+    "dev": "vite serve --mode test",
+    "build:prod": "vite build --mode production --base=/dehaze_front",
     "prepare": "husky install",
     "lint:eslint": "eslint  --fix --ext .ts,.js,.vue ./src ",
     "lint:prettier": "prettier --write \"**/*.{js,cjs,ts,json,tsx,css,less,scss,vue,html,md}\"",
