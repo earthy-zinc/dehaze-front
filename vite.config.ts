@@ -57,15 +57,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
               env.VITE_APP_TARGET_BASE_API
             ), // 替换 /dev-api 为 target 接口地址
         },
-	    [env.VITE_APP_PYTHON_API]: {
-			target: env.VITE_APP_PYTHON_URL,
-			changeOrigin: true,
-			rewrite: (path) =>
-				path.replace(
-					new RegExp("^" + env.VITE_APP_PYTHON_API),
-					env.VITE_APP_TARGET_BASE_API
-				),
-		}
+        [env.VITE_APP_PYTHON_API]: {
+          target: env.VITE_APP_PYTHON_URL,
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(
+              new RegExp("^" + env.VITE_APP_PYTHON_API),
+              env.VITE_APP_TARGET_BASE_API
+            ),
+        },
       },
     },
     plugins: [
@@ -86,8 +86,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         ],
         vueTemplate: true,
         // 配置文件生成位置(false:关闭自动生成)
-        dts: false,
-        // dts: "src/types/auto-imports.d.ts",
+        // dts: false,
+        dts: "src/types/auto-imports.d.ts",
       }),
 
       Components({
@@ -103,8 +103,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         // 指定自定义组件位置(默认:src/components)
         dirs: ["src/**/components"],
         // 配置文件位置(false:关闭自动生成)
-        dts: false,
-        // dts: "src/types/components.d.ts",
+        // dts: false,
+        dts: "src/types/components.d.ts",
       }),
 
       Icons({
