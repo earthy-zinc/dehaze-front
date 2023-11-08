@@ -21,25 +21,30 @@ const logo = ref(new URL(`../../../assets/logo.png`, import.meta.url).href);
       <router-link
         v-if="collapse"
         key="collapse"
-        class="h-full w-full flex items-center justify-center"
+        class="h-full w-full flex items-center ml-5"
         to="/"
       >
-        <img v-if="settingsStore.sidebarLogo" :src="logo" class="w-5 h-5" alt="" />
-        <span v-else class="ml-3 text-white text-sm font-bold"
-          >vue3-element-admin</span
-        >
+        <img
+          v-if="settingsStore.sidebarLogo"
+          :src="logo"
+          class="w-5 h-5"
+          alt=""
+        />
+        <span v-else class="ml-3 text-white text-sm font-bold">{{
+          settingsStore.title
+        }}</span>
       </router-link>
 
       <router-link
         v-else
         key="expand"
-        class="h-full w-full flex items-center justify-center"
+        class="h-full w-full flex items-center ml-5"
         to="/"
       >
         <img v-if="settingsStore.sidebarLogo" :src="logo" class="w-5 h-5" />
-        <span class="ml-3 text-white text-sm font-bold"
-          >vue3-element-admin</span
-        >
+        <span class="ml-3 text-white text-sm font-bold">{{
+          settingsStore.title
+        }}</span>
       </router-link>
     </transition>
   </div>

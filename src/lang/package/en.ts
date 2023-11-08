@@ -6,7 +6,7 @@ export default {
   },
   // 登录页面国际化
   login: {
-    title: "vue3-element-admin",
+    title: "Image Dehazing System",
     username: "Username",
     password: "Password",
     login: "Login",
@@ -16,7 +16,5 @@ export default {
   navbar: {
     dashboard: "Dashboard",
     logout: "Logout",
-    document: "Document",
-    gitee: "Gitee",
   },
 };

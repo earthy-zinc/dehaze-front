@@ -42,9 +42,9 @@ interface DefaultSettings {
 }
 
 const defaultSettings: DefaultSettings = {
-  title: "vue3-element-admin",
+  title: "图像去雾系统",
   showSettings: true,
-  tagsView: true,
+  tagsView: false,
   fixedHeader: false,
   sidebarLogo: true,
   layout: "left",
@@ -54,7 +54,7 @@ const defaultSettings: DefaultSettings = {
    * dark:暗黑模式
    * light: 明亮模式
    */
-  theme: "dark",
+  theme: "light",
   size: "default", // default |large |small
   language: "zh-cn", // zh-cn| en
 };

@@ -9,7 +9,7 @@ export const useSettingsStore = defineStore("setting", () => {
   const showSettings = ref<boolean>(defaultSettings.showSettings);
   const fixedHeader = ref<boolean>(defaultSettings.fixedHeader);
   const sidebarLogo = ref<boolean>(defaultSettings.sidebarLogo);
-
+  const title = ref<string>(defaultSettings.title);
   const layout = useStorage<string>("layout", defaultSettings.layout);
 
   // actions
@@ -37,6 +37,7 @@ export const useSettingsStore = defineStore("setting", () => {
   }
 
   return {
+    title,
     showSettings,
     tagsView,
     fixedHeader,

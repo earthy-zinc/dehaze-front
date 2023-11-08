@@ -3,7 +3,7 @@
   <el-card>
     <template #header>
       <div class="title">
-        业绩柱状图
+        去雾效果柱状图
         <el-tooltip effect="dark" content="点击试试下载" placement="bottom">
           <i-ep-download class="download" @click="downloadEchart" />
         </el-tooltip>
@@ -57,7 +57,7 @@ const options = {
   legend: {
     x: "center",
     y: "bottom",
-    data: ["收入", "毛利润", "收入增长率", "利润增长率"],
+    data: ["有雾图像", "无雾图像", "PSNR", "SSIM"],
     textStyle: {
       color: "#999",
     },
@@ -65,7 +65,13 @@ const options = {
   xAxis: [
     {
       type: "category",
-      data: ["浙江", "北京", "上海", "广东", "深圳"],
+      data: [
+        "C2PNet",
+        "DehazeFormer",
+        "MB-TaylorFormer",
+        "MixDehazeNet",
+        "RIDCP",
+      ],
       axisPointer: {
         type: "shadow",
       },
@@ -75,8 +81,8 @@ const options = {
     {
       type: "value",
       min: 0,
-      max: 10000,
-      interval: 2000,
+      max: 3000,
+      interval: 500,
       axisLabel: {
         formatter: "{value} ",
       },
@@ -84,8 +90,8 @@ const options = {
     {
       type: "value",
       min: 0,
-      max: 100,
-      interval: 20,
+      max: 50,
+      interval: 10,
       axisLabel: {
         formatter: "{value}%",
       },
@@ -93,9 +99,9 @@ const options = {
   ],
   series: [
     {
-      name: "收入",
+      name: "有雾图像",
       type: "bar",
-      data: [7000, 7100, 7200, 7300, 7400],
+      data: [1200, 500, 2500, 1800, 800],
       barWidth: 20,
       itemStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -106,9 +112,9 @@ const options = {
       },
     },
     {
-      name: "毛利润",
+      name: "无雾图像",
       type: "bar",
-      data: [8000, 8200, 8400, 8600, 8800],
+      data: [3000, 1000, 2400, 1600, 800],
       barWidth: 20,
       itemStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -119,19 +125,19 @@ const options = {
       },
     },
     {
-      name: "收入增长率",
+      name: "PSNR",
       type: "line",
       yAxisIndex: 1,
-      data: [60, 65, 70, 75, 80],
+      data: [25, 30, 26, 38, 41],
       itemStyle: {
         color: "#67C23A",
       },
     },
     {
-      name: "利润增长率",
+      name: "SSIM",
       type: "line",
       yAxisIndex: 1,
-      data: [70, 75, 80, 85, 90],
+      data: [14, 25, 30, 35, 40],
       itemStyle: {
         color: "#409EFF",
       },
@@ -169,7 +175,7 @@ const downloadEchart = () => {
     if (ctx) {
       ctx.drawImage(img, 0, 0, img.width, img.height);
       const link = document.createElement("a");
-      link.download = `业绩柱状图.png`;
+      link.download = `去雾效果图.png`;
       link.href = canvas.toDataURL("image/png", 0.9);
       document.body.appendChild(link);
       link.click();

@@ -1,7 +1,7 @@
 <!-- 雷达图 -->
 <template>
   <el-card>
-    <template #header> 订单状态雷达图 </template>
+    <template #header> 数据集情况雷达图 </template>
     <div :id="id" :class="className" :style="{ height, width }"></div>
   </el-card>
 </template>
@@ -40,7 +40,7 @@ const options = {
   legend: {
     x: "center",
     y: "bottom",
-    data: ["预定数量", "下单数量", "发货数量"],
+    data: ["简单雾霾图", "困难雾霾图", "真实雾霾图"],
     textStyle: {
       color: "#999",
     },
@@ -49,12 +49,12 @@ const options = {
     // shape: 'circle',
     radius: "60%",
     indicator: [
-      { name: "家用电器" },
-      { name: "服装箱包" },
-      { name: "运动户外" },
-      { name: "手机数码" },
-      { name: "汽车用品" },
-      { name: "家具厨具" },
+      { name: "RESIDE" },
+      { name: "Dense-Haze" },
+      { name: "I-Haze" },
+      { name: "O-Haze" },
+      { name: "RS-Haze" },
+      { name: "NH-Haze" },
     ],
   },
   series: [
@@ -71,16 +71,16 @@ const options = {
       },
       data: [
         {
-          value: [400, 400, 400, 400, 400, 400],
-          name: "预定数量",
+          value: [400, 100, 200, 600, 300, 100],
+          name: "简单雾霾图",
         },
         {
-          value: [300, 300, 300, 300, 300, 300],
-          name: "下单数量",
+          value: [300, 100, 100, 200, 600, 100],
+          name: "困难雾霾图",
         },
         {
-          value: [200, 200, 200, 200, 200, 200],
-          name: "发货数量",
+          value: [800, 300, 200, 100, 600, 500],
+          name: "真实雾霾图",
         },
       ],
     },

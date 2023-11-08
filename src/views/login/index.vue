@@ -84,8 +84,8 @@
 
       <!-- 账号密码提示 -->
       <div class="mt-4 text-white text-sm">
-        <span>{{ $t("login.username") }}: admin</span>
-        <span class="ml-4"> {{ $t("login.password") }}: 123456</span>
+        <span>去雾体验账号: dehaze</span>
+        <span class="ml-4"> 密码: 123456</span>
       </div>
     </el-form>
   </div>
@@ -130,8 +130,8 @@ const captchaBase64 = ref();
 const loginFormRef = ref(ElForm);
 
 const loginData = ref<LoginData>({
-  username: "admin",
-  password: "123456",
+  username: "",
+  password: "",
 });
 
 const loginRules = {

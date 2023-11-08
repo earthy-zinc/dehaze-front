@@ -35,7 +35,7 @@ const amountOutput = useTransition(amount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-amount.value = 2000;
+amount.value = 150;
 
 // 访问数
 const visitCount = ref(0);
@@ -43,7 +43,7 @@ const visitCountOutput = useTransition(visitCount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-visitCount.value = 2000;
+visitCount.value = 2180;
 
 //消息数
 const messageCount = ref(0);
@@ -51,7 +51,7 @@ const messageCountOutput = useTransition(messageCount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-messageCount.value = 2000;
+messageCount.value = 15;
 
 // 订单数
 const orderCount = ref(0);
@@ -59,14 +59,11 @@ const orderCountOutput = useTransition(orderCount, {
   duration: duration,
   transition: TransitionPresets.easeOutExpo,
 });
-orderCount.value = 2000;
+orderCount.value = 154;
 </script>
 
 <template>
   <div class="dashboard-container">
-    <!-- github角标 -->
-    <github-corner class="github-corner" />
-
     <!-- 用户信息 -->
     <el-row class="mb-8">
       <el-card class="w-full">
@@ -86,24 +83,21 @@ orderCount.value = 2000;
           </div>
 
           <div class="space-x-2 flex items-center justify-end">
-            <el-link
-              target="_blank"
-              type="danger"
-              href="https://blog.csdn.net/u013737132/article/details/130191394"
-              >💥官方从零到一文档</el-link
+            <el-link target="_blank" type="danger" href="http://10.16.90.26/"
+              >💥土味锌的阅读笔记</el-link
             >
             <el-divider direction="vertical" />
             <el-link
               target="_blank"
               type="success"
-              href="https://gitee.com/youlaiorg"
+              href="https://gitee.com/earthy-zinc"
               >Gitee</el-link
             >
             <el-divider direction="vertical" />
             <el-link
               target="_blank"
               type="primary"
-              href="https://github.com/youlaitech"
+              href="https://github.com/earthy-zinc"
               >GitHub
             </el-link>
           </div>
@@ -138,7 +132,7 @@ orderCount.value = 2000;
             <svg-icon icon-class="message" size="3em" />
           </div>
           <div class="flex flex-col space-y-3">
-            <div class="text-[var(--el-text-color-secondary)]">消息数</div>
+            <div class="text-[var(--el-text-color-secondary)]">模型数</div>
             <div class="text-lg text-right">
               {{ Math.round(messageCountOutput) }}
             </div>
@@ -154,7 +148,9 @@ orderCount.value = 2000;
             <svg-icon icon-class="money" size="3em" />
           </div>
           <div class="flex flex-col space-y-3">
-            <div class="text-[var(--el-text-color-secondary)]">收入金额</div>
+            <div class="text-[var(--el-text-color-secondary)]">
+              累计去雾数量
+            </div>
             <div class="text-lg text-right">
               {{ Math.round(amountOutput) }}
             </div>
@@ -169,7 +165,9 @@ orderCount.value = 2000;
             <svg-icon icon-class="shopping" size="3em" />
           </div>
           <div class="flex flex-col space-y-3">
-            <div class="text-[var(--el-text-color-secondary)]">订单数</div>
+            <div class="text-[var(--el-text-color-secondary)]">
+              累计评估数量
+            </div>
             <div class="text-lg text-right">
               {{ Math.round(orderCountOutput) }}
             </div>
@@ -219,14 +217,6 @@ orderCount.value = 2000;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-  }
-
-  .github-corner {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 99;
-    border: 0;
   }
 
   .data-box {
