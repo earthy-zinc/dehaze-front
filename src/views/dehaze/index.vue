@@ -325,9 +325,8 @@ const evaluatePercentage = ref(0);
 
 .image-show-placeholder {
   display: flex;
-  align-content: center;
+  place-content: center center;
   align-items: center;
-  justify-content: center;
   width: 35vmax;
   height: 35vmax;
   border: 1px dashed var(--el-border-color);
