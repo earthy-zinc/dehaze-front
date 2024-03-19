@@ -92,17 +92,17 @@
 </template>
 
 <script setup lang="ts">
-import router from "@/router";
+import { getCaptchaApi } from "@/api/auth";
+import { LoginData } from "@/api/auth/types";
 import LangSelect from "@/components/LangSelect/index.vue";
 import SvgIcon from "@/components/SvgIcon/index.vue";
+import router from "@/router";
 
 // 状态管理依赖
 import { useUserStore } from "@/store/modules/user";
 
 // API依赖
 import { LocationQuery, LocationQueryValue, useRoute } from "vue-router";
-import { getCaptchaApi } from "@/api/auth";
-import { LoginData } from "@/api/auth/types";
 
 const userStore = useUserStore();
 const route = useRoute();
@@ -217,7 +217,25 @@ onMounted(() => {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
-  background-color: #2d3a4b;
+  background-color: #464646;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 50%),
+      rgb(0 0 0 / 50%)
+    ),
+    url("src/assets/background.png");
+
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed;
+
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
 
   .title-wrap {
     filter: contrast(30);
@@ -276,10 +294,10 @@ onMounted(() => {
 
     .el-input__inner {
       color: #fff;
+      caret-color: #fff;
       background: transparent;
       border: 0;
       border-radius: 0;
-      caret-color: #fff;
 
       &:-webkit-autofill {
         box-shadow: 0 0 0 1000px transparent inset !important;

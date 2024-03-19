@@ -4,7 +4,7 @@
   "version": "2.5.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "vite serve --mode test",
+    "dev": "vite serve --mode development",
     "build:prod": "vite build --mode production --base=/dehaze_front",
     "prepare": "husky install",
     "lint:eslint": "eslint  --fix --ext .ts,.js,.vue ./src ",
